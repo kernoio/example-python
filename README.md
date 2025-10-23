@@ -1,4 +1,21 @@
-# FastAPI User & Games API
+# Kerno 
+
+## How to use Kerno extension
+1. Install the extension from the marketplace
+
+4. Write the Kerno key to wakeup Kerno
+
+3. Kerno will automatically start indexing the codebase
+
+2. When the codebase is indexed you can start creating integration test with Kerno
+
+4. To create an integration test go to any python file that has an endpoint.
+
+5. When you identify the endpoint that you want to test, press the button **Run tests with kerno** that will be above the endpoint defintion line.
+
+6. Enjoy Kerno
+
+# FastAPI API
 
 A complete FastAPI application featuring JWT authentication, user management, and game CRUD operations with PostgreSQL database.
 
@@ -125,20 +142,6 @@ alembic upgrade head
 ```
 
 
-# Kerno 
-
-## How to use Kerno extension
-1. Install the extension from the marketplace
-
-4. Write the Kerno key to wakeup Kerno
-
-<img src="screenshots/kerno-key.png" alt="Step 1" height="200">
-
-3. Kerno will automatically start indexing the codebase
-
-<img src="screenshots/kerno-indexing.png" alt="Step 1" height="200">
-
-2. When the codebase is indexed you can start creating integration test with Kerno
 
 
 ## License
