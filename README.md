@@ -40,15 +40,24 @@ example-python/
 │   ├── models.py            # SQLAlchemy models
 │   ├── schemas.py           # Pydantic schemas
 │   ├── auth.py              # JWT authentication utilities
+│   ├── migrations.py        # Migration runner for startup
 │   └── routers/
 │       ├── __init__.py
 │       ├── auth.py          # Authentication endpoints
 │       ├── users.py         # User CRUD endpoints
 │       └── games.py         # Game CRUD endpoints
+├── alembic/
+│   ├── env.py               # Alembic environment configuration
+│   ├── script.py.mako       # Migration template
+│   └── versions/            # Migration scripts directory
+│       ├── *.py             # Python migration files
+│       ├── *_upgrade.sql    # SQL upgrade scripts
+│       └── *_downgrade.sql  # SQL downgrade scripts
+├── alembic.ini              # Alembic configuration
 ├── requirements.txt
-├── docker-compose.yml       # PostgreSQL container
+├── Dockerfile               # Docker container setup
 ├── env.example              # Environment variables template
-└── run.py                   # Development server runner
+└── README.md                # This file
 ```
 
 ## Prerequisites
@@ -98,11 +107,7 @@ openssl rand -hex 32
 
 ### 5. Start PostgreSQL database
 
-```bash
-docker-compose up -d
-```
-
-This will start a PostgreSQL container on port 5432.
+You'll need a postgres database running.
 
 ### 6. Run the application
 
@@ -132,16 +137,59 @@ The API will be available at `http://localhost:8000`
 **Relationship**: One user can have many games (One-to-Many)
 
 
-## Development
+## Database Migrations
 
-### Database migrations
+This project uses **Alembic** for database migrations with **SQL scripts** that are committed to the repository. Migrations run automatically when the application starts.
+
+### How It Works
+
+1. **Automatic Migration on Startup**: When the application starts, it automatically runs any pending migrations to bring the database schema up to date.
+
+2. **SQL Scripts**: All migrations are defined using raw SQL scripts stored in `alembic/versions/` directory, making the schema changes transparent and version-controlled.
+
+3. **Migration Files**:
+   - `c0edcc12896e_initial_migration_with_users_and_games_.py` - Python migration file with SQL operations
+   - `c0edcc12896e_initial_migration.sql` - Upgrade SQL script
+   - `c0edcc12896e_downgrade.sql` - Downgrade SQL script
+
+### Creating New Migrations
+
+To create a new migration:
+
 ```bash
-alembic init migrations
-alembic revision --autogenerate -m "Initial migration"
-alembic upgrade head
+# 1. Create a new migration file
+alembic revision -m "Description of migration"
+
+# 2. Edit the generated file in alembic/versions/ and add SQL using op.execute()
+# Example:
+# def upgrade():
+#     op.execute("""
+#         ALTER TABLE users ADD COLUMN phone VARCHAR(20)
+#     """)
+
+# 3. Generate SQL scripts for documentation
+alembic upgrade head --sql > alembic/versions/REVISION_ID_upgrade.sql
+alembic downgrade REVISION_ID:base --sql > alembic/versions/REVISION_ID_downgrade.sql
+
 ```
 
+### Manual Migration Management
 
+If you need to run migrations manually (without app startup):
+
+```bash
+# Upgrade to latest version
+alembic upgrade head
+
+# Downgrade one version
+alembic downgrade -1
+
+# Show current version
+alembic current
+
+# Show migration history
+alembic history
+```
 
 
 ## License

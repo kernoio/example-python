@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from app.database import engine, Base
 from app.routers import auth, users, games
+from app.migrations import run_migrations
 
-Base.metadata.create_all(bind=engine)
+run_migrations()
 
 app = FastAPI(
     title="FastAPI User & Games API",
