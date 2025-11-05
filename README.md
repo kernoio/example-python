@@ -9,14 +9,17 @@ Kerno is available on VS Code, Cursor, and Windsurf.
 1. Install the Kerno extension from the VS Code Marketplace. Simply search for Kerno.
 2. Enter your Kerno key when prompted to activate the extension.
 3. Kerno will start indexing your codebase automatically. You can track progress in the sidebar.
-<img width="674" height="453" alt="Screenshot 2025-11-05 at 15 25 31" src="https://github.com/user-attachments/assets/a4ccb5ed-0647-4138-b923-25530fd689c5" />
+<img width="706" height="332" alt="Screenshot 2025-11-05 at 15 33 51" src="https://github.com/user-attachments/assets/919ac324-15ed-45a0-aa08-670b8acd3141" />
+
 4. Once indexing is complete, you can begin creating integration tests.
 
 ### Creating your first test
 1. Open any Python file that contains an endpoint.
+<img width="688" height="156" alt="Screenshot 2025-11-05 at 15 37 13" src="https://github.com/user-attachments/assets/6d1e2610-d128-449b-8751-19433bf52a44" />
+
 2. Select the endpoint you want to test.
 3. Click the **Run tests with Kerno** button that appears above the function definition.
-<img width="1032" height="248" alt="Screenshot 2025-11-05 at 15 27 13" src="https://github.com/user-attachments/assets/b82d0416-6f95-479f-91ef-a2fe246d33ed" />
+<img width="1032" height="248" alt="Screenshot 2025-11-05 at 15 27 13" src="https://github.com/user-attachments/assets/b82d0416-6f95-479f-91ef-a2fe246d33ed"/>
 4. Kerno will generate and run the tests for you.
 
 # About This Project
