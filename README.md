@@ -1,23 +1,27 @@
-# Kerno 
+# Kerno
+Kerno is an integration testing co-pilot for backend developers. It autonomously generates, runs, and maintains context aware tests inside your IDE.
 
 ## How to use Kerno extension
-1. Install the extension from the marketplace
 
-4. Write the Kerno key to wakeup Kerno
+Kerno is available on VS Code, Cursor, and Windsurf.
 
-3. Kerno will automatically start indexing the codebase
+### Getting started
+1. Install the Kerno extension from the VS Code Marketplace. Simply search for Kerno.
+2. Enter your Kerno key when prompted to activate the extension.
+3. Kerno will start indexing your codebase automatically. You can track progress in the sidebar.
+<img width="674" height="453" alt="Screenshot 2025-11-05 at 15 25 31" src="https://github.com/user-attachments/assets/a4ccb5ed-0647-4138-b923-25530fd689c5" />
+4. Once indexing is complete, you can begin creating integration tests.
 
-2. When the codebase is indexed you can start creating integration test with Kerno
+### Creating your first test
+1. Open any Python file that contains an endpoint.
+2. Select the endpoint you want to test.
+3. Click the **Run tests with Kerno** button that appears above the function definition.
+<img width="1032" height="248" alt="Screenshot 2025-11-05 at 15 27 13" src="https://github.com/user-attachments/assets/b82d0416-6f95-479f-91ef-a2fe246d33ed" />
+4. Kerno will generate and run the tests for you.
 
-4. To create an integration test go to any python file that has an endpoint.
+# About this project
 
-5. When you identify the endpoint that you want to test, press the button **Run tests with kerno** that will be above the endpoint defintion line.
-
-6. Enjoy Kerno
-
-# FastAPI API
-
-A complete FastAPI application featuring JWT authentication, user management, and game CRUD operations with PostgreSQL database.
+This is a complete FastAPI application featuring JWT authentication, user management, and game CRUD operations with PostgreSQL database.
 
 ## Features
 
