@@ -19,7 +19,7 @@ Kerno is available on VS Code, Cursor, and Windsurf.
 <img width="1032" height="248" alt="Screenshot 2025-11-05 at 15 27 13" src="https://github.com/user-attachments/assets/b82d0416-6f95-479f-91ef-a2fe246d33ed" />
 4. Kerno will generate and run the tests for you.
 
-# About this project
+# About This Project
 
 This is a complete FastAPI application featuring JWT authentication, user management, and game CRUD operations with PostgreSQL database.
 
