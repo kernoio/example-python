@@ -12,7 +12,8 @@ Kerno is available on VS Code, Cursor, and Windsurf.
 
 ### Getting started
 1. Install the Kerno extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kerno.kerno) or from [Open VSX](https://open-vsx.org/extension/Kerno/kerno)
-2. Enter your Kerno key when prompted to activate the extension. You can request your key [here](https://www.kerno.io/beta-signup)
+2. Enter your Kerno key when prompted to activate the extension. You can request your key [here](https://www.kerno.io/beta-signup?utm_source=github&utm_medium=pyproject&utm_campaign=early_access
+))
 3. Kerno will start indexing your codebase automatically. You can track progress in the sidebar.
 <img width="706" height="332" alt="Screenshot 2025-11-05 at 15 33 51" src="https://github.com/user-attachments/assets/919ac324-15ed-45a0-aa08-670b8acd3141" />
 
