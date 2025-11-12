@@ -1,5 +1,5 @@
 # Kerno
-> ℹ️ **Beta Status**  
+> [!NOTE] **Beta Status**  
 > Kerno is still in active development and things may change quickly.  
 > We will move out of beta once the core workflow feels smooth for everyday use and we are confident in the developer experience.
 
@@ -11,13 +11,14 @@ Kerno is an integration testing co-pilot for backend developers. It autonomously
 Kerno is available on VS Code, Cursor, and Windsurf.
 
 ### Getting started
-1. Install the Kerno extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kerno.kerno) or from [Open VSX](https://open-vsx.org/extension/Kerno/kerno)
-2. Enter your Kerno key when prompted to activate the extension. You can request your key [here](https://www.kerno.io/beta-signup?utm_source=github&utm_medium=pyproject&utm_campaign=early_access
+1. Clone this repository
+2. Install the Kerno extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kerno.kerno) or from [Open VSX](https://open-vsx.org/extension/Kerno/kerno)
+3. Enter your Kerno key when prompted to activate the extension. You can request your key [here](https://www.kerno.io/beta-signup?utm_source=github&utm_medium=pyproject&utm_campaign=early_access
 ))
-3. Kerno will start indexing your codebase automatically. You can track progress in the sidebar.
+4. Kerno will start indexing your codebase automatically. You can track progress in the sidebar.
 <img width="706" height="332" alt="Screenshot 2025-11-05 at 15 33 51" src="https://github.com/user-attachments/assets/919ac324-15ed-45a0-aa08-670b8acd3141" />
 
-4. Once indexing is complete, you can begin creating integration tests.
+5. Once indexing is complete, you can begin creating integration tests.
 
 ### Creating your first test
 1. Open any Python file that contains an endpoint.
@@ -38,7 +39,7 @@ This is a complete FastAPI application featuring JWT authentication, user manage
 - 👤 **User Management** - Full CRUD operations for users
 - 🎮 **Game Management** - Full CRUD operations for games
 - 🔗 **Relationships** - Users can own multiple games
-- 🐘 **PostgreSQL** - Robust database backend
+- 🐘 **PostgreSQL** - Database backend
 - 📝 **API Documentation** - Auto-generated with Swagger UI and ReDoc
 - ✅ **Type Safety** - Pydantic models for request/response validation
 
@@ -79,57 +80,6 @@ example-python/
 - Docker and Docker Compose (for PostgreSQL)
 - pip or pipenv
 
-## Installation
-
-### 1. Clone the repository
-
-```bash
-cd example-python
-```
-
-### 2. Create a virtual environment
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Set up environment variables
-
-```bash
-cp env.example .env
-```
-
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/fastapi_db
-SECRET_KEY=your-secret-key-here-change-in-production
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-```
-
-To generate a secure SECRET_KEY:
-```bash
-openssl rand -hex 32
-```
-
-### 5. Start PostgreSQL database
-
-You'll need a postgres database running.
-
-### 6. Run the application
-
-```bash
-uvicorn app.main:app --reload
-```
-
-The API will be available at `http://localhost:8000`
-
 ## Database Schema
 
 ### Users Table
@@ -149,7 +99,6 @@ The API will be available at `http://localhost:8000`
 
 **Relationship**: One user can have many games (One-to-Many)
 
-
 ## Database Migrations
 
 This project uses **Alembic** for database migrations with **SQL scripts** that are committed to the repository. Migrations run automatically when the application starts.
@@ -164,46 +113,6 @@ This project uses **Alembic** for database migrations with **SQL scripts** that 
    - `c0edcc12896e_initial_migration_with_users_and_games_.py` - Python migration file with SQL operations
    - `c0edcc12896e_initial_migration.sql` - Upgrade SQL script
    - `c0edcc12896e_downgrade.sql` - Downgrade SQL script
-
-### Creating New Migrations
-
-To create a new migration:
-
-```bash
-# 1. Create a new migration file
-alembic revision -m "Description of migration"
-
-# 2. Edit the generated file in alembic/versions/ and add SQL using op.execute()
-# Example:
-# def upgrade():
-#     op.execute("""
-#         ALTER TABLE users ADD COLUMN phone VARCHAR(20)
-#     """)
-
-# 3. Generate SQL scripts for documentation
-alembic upgrade head --sql > alembic/versions/REVISION_ID_upgrade.sql
-alembic downgrade REVISION_ID:base --sql > alembic/versions/REVISION_ID_downgrade.sql
-
-```
-
-### Manual Migration Management
-
-If you need to run migrations manually (without app startup):
-
-```bash
-# Upgrade to latest version
-alembic upgrade head
-
-# Downgrade one version
-alembic downgrade -1
-
-# Show current version
-alembic current
-
-# Show migration history
-alembic history
-```
-
 
 ## License
 MIT
